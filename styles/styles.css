@@ -1,0 +1,76 @@
+@media screen and (max-width: 720px) {
+    
+
+.icon{
+    width: 30px;
+    height: 30px;
+}
+
+
+#title{
+    text-align: center;
+}
+
+.app{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-header{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    
+}
+
+
+#theme-settings{
+
+    justify-self: flex-end;
+    
+}
+
+#searchbar{
+    display:inline-flex;
+    align-items:center;
+    padding-top:10px;
+    min-width: 250px;
+}
+
+
+.error{
+    text-align: center;
+}
+
+#word{
+    text-align: center;
+    font-weight:bold ;
+}
+#search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#search-results{
+   
+    padding-top: 10px;
+    padding-left:10px; 
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+footer{
+    text-align: center;
+    margin-right:50px ;
+}
+
+}

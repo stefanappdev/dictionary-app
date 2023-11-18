@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary App</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/index.js"></script>
+</head>
+<body class="app">
+    <section id="app-header">
+            <h1 id="title">My Dictionary App</h1>
+            <div id="settings">
+                <img onclick="changeTheme()" src="../images/darkmoon.svg" id="theme-settings" class="lightmode icon" alt="lightmode">
+                
+            </div>
+
+            <script>
+                function changeTheme() {
+                    let theme = document.querySelector("#theme-settings");
+
+                    if (theme.classList.contains("lightmode") )  {
+                        theme.classList.remove("lightmode");
+                        theme.classList.add("darkmode");
+                        let app=document.querySelector(".app");
+                        app.setAttribute("style", "background-color:#1D4F87; color:white");
+                        theme.setAttribute("src", "../images/moon.svg");
+                       
+
+                       
+                    }else{
+
+                        theme.classList.remove("darkmode");
+                        theme.classList.add("lightmode");
+                        let app=document.querySelector(".app");
+                        app.setAttribute("style", "background-color:#6D7278,color:black");
+                        theme.setAttribute("src", "../images/darkmoon.svg");
+                        
+                    }
+                }
+                
+            </script>
+    </section>
+
+    <main>
+
+        
+
+        <div id="search-section" >
+           <div id="searchbar">
+                <input onchange="handleChange(event)" id="search" type="text"  placeholder="Enter a keyword here">
+                <img onclick="handleSearch(document.querySelector('#search').value)" src="../images/search.svg" class="icon" id="search-icon">
+           </div>
+
+            <script>
+                function handleChange(e) {
+                    let search = document.querySelector("#search");
+                    e.target.value = search.value;
+
+                } 
+                
+                async function handleSearch(target) {
+                        let api=`https://api.dictionaryapi.dev/api/v2/entries/en/${target}`;
+                        let resp= await fetch(api,{method: 'GET'})
+                       
+                        let results=document.querySelector("#search-results");
+                        if (resp.ok) {
+                            let data= await resp.json();
+                           
+                            if (results.innerHTML!=''){
+
+                                results.innerHTML='';
+
+                                 data.map(item=>{
+                                let result=document.createElement("div");
+                                let word=document.createElement("span");
+                                let pos=document.createElement('div');
+                                let def=document.createElement('div');
+                                let syn=document.createElement('div');
+                                let ant=document.createElement('div');
+                                let searchbar=document.querySelector('#search');
+                                word.classList.add("word");
+                                pos.classList.add("part-of-speech");
+                                def.classList.add("definition");
+                                syn.classList.add("synonyms");
+                                ant.classList.add("antonyms");
+
+                                word.textContent=item.word;
+                                pos.textContent=item.meanings[0].partOfSpeech;
+                                def.textContent=item.meanings[0].definitions[0].definition;
+                                syn.textContent=item.meanings[0].definitions[0].synonyms;
+                                ant.textContent=item.meanings[0].definitions[0].antonyms;
+                                result.appendChild(word);
+                                result.appendChild(pos);
+                                result.appendChild(def);
+                                result.appendChild(syn);
+                                result.appendChild(ant);
+                                results.appendChild(result);
+
+                                searchbar.value='';
+
+                                    })
+                                }
+                            }else{
+                              results.innerHTML='<p class="error"><strong>No results found</strong> </p>';
+                            }
+
+                        
+                           
+                    }    
+            </script>
+        </div>
+
+
+    <div id="search-results">
+
+    </div>
+
+    </main>
+
+    <br>
+
+    <footer>&copy; Stefan Mitchell 2022</footer>
+
+</body>
+</html>
