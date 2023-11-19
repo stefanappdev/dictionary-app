@@ -1,9 +1,17 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 @media screen and (max-width: 720px) {
     
 
 .icon{
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 
@@ -44,7 +52,8 @@
 
 
 .error{
-    text-align: center;
+    text-align:center;
+    margin-right:50px ;
 }
 
 #word{
@@ -63,14 +72,183 @@
     padding-top: 10px;
     padding-left:10px; 
     margin-top: 20px;
-    text-align: center;
+    text-align: left;
 }
 
+.result{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    }
 
+.result .word{
+    font-weight: bolder;
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    
+}
 
+#searchbar input:focus{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+}
+
+.audio{
+    cursor: pointer;
+}
+
+.btn{
+    border-radius:5px;
+    cursor: pointer;
+
+}
+
+.result .part-of-speech{
+    font-size: 15px;
+    font-weight: bold;
+    margin:5px;
+}
+
+.result .definition{
+    font-size: 15px;
+    margin:10px;
+}
+
+.result .source-url{
+    font-size: 15px;
+    margin-bottom:15px;
+    margin-top:15px;
+    text-decoration: none;
+    cursor: pointer;
+}
 footer{
     text-align: center;
     margin-right:50px ;
 }
 
 }
+
+
+@media screen and (min-width: 720px) {
+    
+
+    .icon{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    
+    
+    #title{
+        text-align: center;
+    }
+    
+    .app{
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #eeeee4;
+    }
+    
+    #app-header{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        
+    }
+
+    .audio{
+        cursor: pointer;
+    }
+    
+   
+.btn{
+    border-radius:5px;
+    cursor: pointer;
+}
+    
+    #theme-settings{
+    
+        justify-self: flex-end;
+        
+    }
+    
+    #searchbar{
+        display:inline-flex;
+        align-items:center;
+        padding-top:10px;
+        min-width: 250px;
+    }
+    
+    
+    .error{
+        text-align:center;
+        margin-right:50px ;
+    }
+    
+    #word{
+        text-align: center;
+        font-weight:bold ;
+    }
+    #search-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    #search-results{
+       
+        padding-top: 10px;
+        padding-left:10px; 
+        margin-top: 20px;
+        text-align: left;
+    }
+    
+    .result{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        }
+    
+    .result .word{
+        font-weight: bolder;
+        font-size: 25px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        
+    }
+    
+    #searchbar input:focus{
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
+    }
+    
+    
+    .result .part-of-speech{
+        font-size: 15px;
+        font-weight: bold;
+        margin:5px;
+    }
+    
+    .result .definition{
+        font-size: 15px;
+        margin:10px;
+    }
+    
+    .result .source-url{
+        font-size: 15px;
+        margin-bottom:15px;
+        margin-top:15px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    footer{
+        text-align: center;
+        margin-right:50px ;
+    }
+    
+    }
